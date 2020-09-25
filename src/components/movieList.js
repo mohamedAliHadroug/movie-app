@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react'
 import MovieCard from './movieCard'
 import StarRatingComponent from 'react-star-rating-component'
+import {Link} from 'react-router-dom'
 
 
 
@@ -16,7 +17,10 @@ import StarRatingComponent from 'react-star-rating-component'
             <div className="row">
             
             {movies.map((MovieInfos,index)=>{
-                return <MovieCard key={index} title={MovieInfos.title} posterUrl={MovieInfos.posterUrl} description={MovieInfos.description} rate={MovieInfos.rate} />
+                return (
+                <Link to={`/description/${MovieInfos.description}/${MovieInfos.video}`} style={{textDecoration : "none", color :'#473531'}}>
+                <MovieCard key={index} title={MovieInfos.title} posterUrl={MovieInfos.posterUrl} description={MovieInfos.description} rate={MovieInfos.rate} />
+                </Link>)
             })}
             </div>
         </Fragment>
